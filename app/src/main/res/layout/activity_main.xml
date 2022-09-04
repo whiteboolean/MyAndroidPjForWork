@@ -15,21 +15,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:tabIndicator="@drawable/bg_indicator"
-        app:tabIndicatorColor="@null"
-        app:layout_constraintVertical_bias="0.0" >
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="第一个Tab"
-            />
-
-        <com.google.android.material.tabs.TabItem
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="第二个Tab"
-            />
+        app:tabIndicatorColor="@null">
 
     </com.google.android.material.tabs.TabLayout>
 
