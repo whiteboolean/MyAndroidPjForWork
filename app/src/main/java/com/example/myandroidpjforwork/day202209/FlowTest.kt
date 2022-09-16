@@ -2,9 +2,11 @@ package com.example.myandroidpjforwork.day202209
 
 import com.example.myandroidpjforwork.extentions.log
 import com.example.myandroidpjforwork.extentions.logN
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withTimeout
 
 fun main() {
 
@@ -30,22 +32,48 @@ fun main() {
     /**
      * Flow retry
      */
-    runBlocking {
-        flow {
-            for (i in 0..10) {
-                delay(100)
-                if (i == 3) throw RuntimeException("自定义错误")
-                emit(i)
-            }
-        }.retry(2) //再试两次 一共三次
-            .onStart { logN("onStart") }
-            .onEach {
-                logN("it:$it")
-            }.onCompletion {
-                logN("competition:$this")
-            }.catch {exception->
-                logN("catch:$exception")
-            }.collect()
+//    runBlocking {
+//        flow {
+//            for (i in 0..10) {
+//                delay(100)
+//                if (i == 3) throw RuntimeException("自定义错误")
+//                emit(i)
+//            }
+//        }.retry(2) //再试两次 一共三次
+//            .onStart { logN("onStart") }
+//            .onEach {
+//                logN("it:$it")
+//            }.onCompletion {
+//                logN("competition:$this")
+//            }.catch {exception->
+//                logN("catch:$exception")
+//            }.collect()
+//    }
+
+
+    /**
+     * Flow withTimeOut
+     */
+    val handlerException = CoroutineExceptionHandler { coroutineContext, throwable ->
+        log("$coroutineContext $throwable")
     }
+//    runBlocking(handlerException) {
+//        withTimeout(200) {
+//            flow {
+//                for (i in 0..10) {
+//                    delay(100)
+//                    if (i == 5) throw RuntimeException("自定义错误")
+//                    emit("$i")
+//                }
+//            }.retry(3)
+//                .onEach {
+//                    logN("it:$it")
+//                }.onCompletion {
+//                    logN("competition:$this, $it")
+//                }.catch { exception ->
+//                    logN("catch:$exception")
+//                }.collect()
+//        }
+//    }
 
 }
