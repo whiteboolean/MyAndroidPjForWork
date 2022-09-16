@@ -2,12 +2,12 @@ package com.example.myandroidpjforwork.day202209
 
 import com.example.myandroidpjforwork.extentions.log
 import com.example.myandroidpjforwork.extentions.logN
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.delay
+import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withTimeout
 
+/**
+ *  https://www.jb51.net/article/261296.htm
+ */
 fun main() {
 
 
@@ -75,5 +75,22 @@ fun main() {
 //                }.collect()
 //        }
 //    }
+
+    val flow = (1..8).asFlow().onStart {
+        logN("onStart")
+    }.onCompletion {
+        logN("competition:$this, $it")
+    }.catch { exception ->
+        logN("catch:$exception")
+    }
+
+    runBlocking {
+        //Flow的取消依赖协程的取消
+        withTimeoutOrNull(210) {
+            flow.collect {
+                logN("collect:$it")
+            }
+        }
+    }
 
 }

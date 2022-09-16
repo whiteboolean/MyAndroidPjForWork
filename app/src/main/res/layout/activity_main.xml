@@ -28,6 +28,7 @@
             app:tabIndicator="@drawable/bg_indicator"
             app:tabIndicatorColor="@null"/>
         <Button
+            android:id="@+id/btnGood"
             android:text="真棒"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
