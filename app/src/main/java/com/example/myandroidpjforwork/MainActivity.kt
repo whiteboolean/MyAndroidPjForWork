@@ -61,13 +61,23 @@ class MainActivity : AppCompatActivity() {
         }.attach()
 
 
+        binding.btnGood.setOnClickListener {
+           ToastUtil.showToast("你好")
+        }
 
         binding.btnGood.clickFlow()
-            .throttleFirst(2000)
-            .onEach { action->
-                logN("整挺好:$action")
-            }
-            .launchIn(lifecycleScope)
+            .throttleFirst(1000,true)
+            .onEach {
+                ToastUtil.showToast("整挺好：$it")
+            }.launchIn(lifecycleScope)
+
+//        binding.btnGood.clickFlow()
+//            .throttleFirst(10, true)
+//            .onEach { action ->
+////                showToast("12432")
+//                logN("整挺好:$action")
+//            }
+//            .launchIn(lifecycleScope)
 
     }
 

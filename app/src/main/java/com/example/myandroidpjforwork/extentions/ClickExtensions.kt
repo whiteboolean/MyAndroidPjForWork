@@ -7,10 +7,16 @@ import kotlinx.coroutines.*
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.callbackFlow
+import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flow
 import kotlin.coroutines.coroutineContext
 
-fun <T> Flow<T>.throttleFirst(thresholdMillis: Long): Flow<T> = flow {
+@OptIn(FlowPreview::class)
+fun <T> Flow<T>.throttleFirst(
+    thresholdMillis: Long,
+    showToast: Boolean = false,
+    toastContent: String = "太快了，挖槽"
+): Flow<T> = flow {
     var lastTime = 0L // 上次发射数据的时间
     // 收集数据
     collect {
@@ -20,8 +26,8 @@ fun <T> Flow<T>.throttleFirst(thresholdMillis: Long): Flow<T> = flow {
         if (currentTime - lastTime > thresholdMillis) {
             lastTime = currentTime
             emit(it)
-        } else{
-            Toast.makeText(App.context, "太快", Toast.LENGTH_SHORT).show()
+        } else {
+            if (showToast) ToastUtil.showToast(toastContent)
         }
     }
 }
