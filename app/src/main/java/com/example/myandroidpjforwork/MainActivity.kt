@@ -79,24 +79,32 @@ class MainActivity : AppCompatActivity() {
         /**
          * 2.单条消息连续数字长度
          */
-        val singleMessageLength = 3
-        val numberStr = listOf('1', '2', '3', '4', '5', '6', '7', '8', '9', '0')
+        val singleConstantLength  = 10
+        val strTest = "32432a发挥很好范德萨"
+        val csl = NumberUtils.getConstantNumberLength(strTest)
 
-        val strTest = "单挑消息长度3432解封了都是3243放到进料口2"
+        /**
+         * 3.连续数字消息条数
+         */
+        val strTest2 = "发的撒范德萨3243243"
+        val isFull = NumberUtils.getIfFullNumericMsg(strTest2)
 
-        fun getConstantsNumberLength(str: String) {
-            var cl = 0
-            var maxLength = 0
-            strTest.forEach {
-                if (numberStr.contains(it)) {
-                    cl++
-                } else {
-                    cl = 0
-                }
-                maxLength = maxLength.coerceAtLeast(cl)
-            }
+        /**
+         * 链接限制
+         */
+        val urlLimit = "打撒富士达"
+        val isUrl = NumberUtils.isHttpUrl(urlLimit)
 
-        }
+
+        /**
+         * 连续触发风控
+         */
+
+
+        /**
+         * 累计触发风控
+         */
+
 
 
     }
