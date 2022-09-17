@@ -11,7 +11,6 @@ import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flow
 import kotlin.coroutines.coroutineContext
 
-@OptIn(FlowPreview::class)
 fun <T> Flow<T>.throttleFirst(
     thresholdMillis: Long,
     showToast: Boolean = false,

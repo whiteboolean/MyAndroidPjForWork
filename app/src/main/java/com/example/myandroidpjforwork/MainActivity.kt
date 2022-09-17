@@ -17,6 +17,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 import java.util.*
+import kotlin.math.max
 
 
 class MainActivity : AppCompatActivity() {
@@ -62,22 +63,41 @@ class MainActivity : AppCompatActivity() {
 
 
         binding.btnGood.setOnClickListener {
-           ToastUtil.showToast("你好")
+            ToastUtil.showToast("你好")
         }
 
+        /**
+         *1. 发言频率
+         */
+        val speakFrequencyTime = 10000L
         binding.btnGood.clickFlow()
-            .throttleFirst(1000,true)
+            .throttleFirst(speakFrequencyTime, true)
             .onEach {
                 ToastUtil.showToast("整挺好：$it")
             }.launchIn(lifecycleScope)
 
-//        binding.btnGood.clickFlow()
-//            .throttleFirst(10, true)
-//            .onEach { action ->
-////                showToast("12432")
-//                logN("整挺好:$action")
-//            }
-//            .launchIn(lifecycleScope)
+        /**
+         * 2.单条消息连续数字长度
+         */
+        val singleMessageLength = 3
+        val numberStr = listOf('1', '2', '3', '4', '5', '6', '7', '8', '9', '0')
+
+        val strTest = "单挑消息长度3432解封了都是3243放到进料口2"
+
+        fun getConstantsNumberLength(str: String) {
+            var cl = 0
+            var maxLength = 0
+            strTest.forEach {
+                if (numberStr.contains(it)) {
+                    cl++
+                } else {
+                    cl = 0
+                }
+                maxLength = maxLength.coerceAtLeast(cl)
+            }
+
+        }
+
 
     }
 
