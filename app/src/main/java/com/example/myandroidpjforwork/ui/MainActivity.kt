@@ -1,4 +1,4 @@
-package com.example.myandroidpjforwork
+package com.example.myandroidpjforwork.ui
 
 import android.os.Bundle
 import android.util.Log
@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.example.myandroidpjforwork.R
 import com.example.myandroidpjforwork.databinding.ActivityMainBinding
 import com.example.myandroidpjforwork.extentions.*
 import com.google.android.material.tabs.TabLayoutMediator
@@ -70,34 +71,34 @@ class MainActivity : AppCompatActivity() {
                 ToastUtil.showToast("整挺好：$it")
             }.launchIn(lifecycleScope)
 
-        /**
-         * 2.单条消息连续数字长度
-         */
-        val singleConstantLength  = 10
-        val strTest = "32432a发挥很好范德萨"
-        val csl = NumberUtils.getConstantNumberLength(strTest)
-
-        /**
-         * 3.连续数字消息条数
-         */
-        val strTest2 = "发的撒范德萨3243243"
-        val isFull = NumberUtils.getIfFullNumericMsg(strTest2)
-
-        /**
-         * 4.链接限制
-         */
-        val urlLimit = "打撒富士达"
-        val isUrl = NumberUtils.isHttpUrl(urlLimit)
-
-
-        /**
-         * 连续触发风控
-         */
-
-
-        /**
-         * 累计触发风控
-         */
+//        /**
+//         * 2.单条消息连续数字长度
+//         */
+//        val singleConstantLength  = 10
+//        val strTest = "32432a发挥很好范德萨"
+//        val csl = NumberUtils.getConstantNumberLength(strTest)
+//
+//        /**
+//         * 3.连续数字消息条数
+//         */
+//        val strTest2 = "发的撒范德萨3243243"
+//        val isFull = NumberUtils.getIfFullNumericMsg(strTest2)
+//
+//        /**
+//         * 4.链接限制
+//         */
+//        val urlLimit = "打撒富士达"
+//        val isUrl = NumberUtils.isHttpUrl(urlLimit)
+//
+//
+//        /**
+//         * 连续触发风控
+//         */
+//
+//
+//        /**
+//         * 累计触发风控
+//         */
 
 
 
