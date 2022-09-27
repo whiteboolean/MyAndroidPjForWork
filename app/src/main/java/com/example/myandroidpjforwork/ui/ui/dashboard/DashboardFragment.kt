@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.myandroidpjforwork.databinding.FragmentDashboardBinding
+import com.google.android.material.transition.MaterialContainerTransform
 
 class DashboardFragment : Fragment() {
 
@@ -16,6 +17,11 @@ class DashboardFragment : Fragment() {
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+//        sharedElementEnterTransition = MaterialContainerTransform()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

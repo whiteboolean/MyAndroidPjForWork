@@ -31,13 +31,5 @@ class NavigationGraphView : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.button1.setOnClickListener {
-            navController.navigate(R.id.action_navigation_home_to_navigation_dashboard)
-        }
-
-        binding.button2.setOnClickListener {
-            navController.navigate(R.id.action_navigation_home_to_navigation_notifications)
-        }
-
     }
 }
