@@ -7,6 +7,7 @@
     tools:context=".ui.ui.home.HomeFragment">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="103dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -17,16 +18,27 @@
             android:id="@+id/button1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:transitionName="start_container_1"
-            android:text="btn 1" />
+            android:text="btn 1"
+            android:transitionName="start_container_1" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:transitionName="start_container_2"
-            android:text="btn 2" />
+            android:text="btn 2"
+            android:transitionName="start_container_2" />
 
 
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="288dp"
+        android:layout_marginEnd="100dp"
+        android:text="Button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,16 +1,14 @@
 package com.example.myandroidpjforwork.ui
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import com.example.myandroidpjforwork.R
 import com.example.myandroidpjforwork.databinding.ActivityNavigationGraphViewBinding
 
-class NavigationGraphView : AppCompatActivity() {
+class NavigationGraphViewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNavigationGraphViewBinding
 
