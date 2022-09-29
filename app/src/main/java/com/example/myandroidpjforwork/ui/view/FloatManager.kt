@@ -1,6 +1,7 @@
 package com.example.myandroidpjforwork.ui.view
 
 import android.annotation.SuppressLint
+import android.view.Gravity
 import android.widget.FrameLayout
 import androidx.activity.ComponentActivity
 import androidx.core.view.contains
@@ -41,6 +42,11 @@ object FloatManager {
         checkParams()
         if (!mIsShowing) {
             mContentView.removeView(mFloatView)
+            mFloatView?.layoutParams  = FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.WRAP_CONTENT,
+                FrameLayout.LayoutParams.WRAP_CONTENT,
+                Gravity.END or Gravity.BOTTOM
+            )
             mContentView.addView(mFloatView)
             mIsShowing = true
         }
