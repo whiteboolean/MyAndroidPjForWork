@@ -86,13 +86,13 @@ public class DouYinHeaderView extends View {
                         if (currentValue >= ((float) Math.PI) * 0.5f) {
                             drawOutsideCirle = false;
                             //在第五次缩小到最小时进行头像切换
-                            if (countDown == 5 && !change) {
-                                change = true;
-                                currentBitmapIndex = (++currentBitmapIndex) % 2;
-                                bitmap = bitmaps[currentBitmapIndex];
-                                bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
-                                paint.setShader(bitmapShader);
-                            }
+//                            if (countDown == 5 && !change) {
+//                                change = true;
+//                                currentBitmapIndex = (++currentBitmapIndex) % 2;
+//                                bitmap = bitmaps[currentBitmapIndex];
+//                                bitmapShader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
+//                                paint.setShader(bitmapShader);
+//                            }
                         } else {
                             //是缩小动画因此设置画外圆标志位并计算外圆扩散动画因子outSideRatio
                             drawOutsideCirle = true;
