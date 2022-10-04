@@ -18,7 +18,7 @@ class FlashRoundImageView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : AppCompatImageView(context, attributeSet, defStyleAttr) {
 
-    private  val TAG = "FlashRoundImageView"
+    private val TAG = "FlashRoundImageView"
 
     private var borderColor = 0 // 圆形头像的边框颜色
 
@@ -62,8 +62,9 @@ class FlashRoundImageView @JvmOverloads constructor(
         mBorderPaint!!.isAntiAlias = true
     }
 
+    var valueAnimator = ValueAnimator.ofFloat(1f, 0.5f)
+
     private fun startAnim() {
-        val valueAnimator = ValueAnimator.ofFloat(1f, 0.5f)
         valueAnimator.interpolator = LinearInterpolator()
         valueAnimator.duration = 500
         valueAnimator.repeatCount = -1
@@ -74,6 +75,12 @@ class FlashRoundImageView @JvmOverloads constructor(
             invalidate()
         }
         valueAnimator.start()
+    }
+
+    private fun stopAnim() {
+        if (valueAnimator.isRunning) {
+            valueAnimator.cancel()
+        }
     }
 
 
@@ -109,7 +116,8 @@ class FlashRoundImageView @JvmOverloads constructor(
         val specMode = MeasureSpec.getMode(heightMeasureSpec)
         val specSize = MeasureSpec.getSize(heightMeasureSpec)
         when (specMode) {
-            MeasureSpec.EXACTLY -> height = if (specSize < minHeight) minHeight else specSize // 此处我是设置了EXACTLY的值，仅是圆形图片大小的值
+            MeasureSpec.EXACTLY -> height =
+                if (specSize < minHeight) minHeight else specSize // 此处我是设置了EXACTLY的值，仅是圆形图片大小的值
             MeasureSpec.AT_MOST -> height = minHeight + paddingTop + paddingBottom
             MeasureSpec.UNSPECIFIED -> height = minHeight + paddingTop + paddingBottom
         }
@@ -210,6 +218,7 @@ class FlashRoundImageView @JvmOverloads constructor(
     override fun onDetachedFromWindow() {
         super.onDetachedFromWindow()
         Log.d(TAG, "onDetachedFromWindow: ")
+        stopAnim()
     }
 
 
