@@ -69,12 +69,16 @@ public class DouYinHeaderView extends View {
         padding += expandOutside;
         circlePaint.setStrokeWidth(unMoveCirlceStrokeWidth);
         circlePaint.setStyle(Paint.Style.STROKE);
-        float[] position = new float[3];
-        position[0] = 0.0f;
-        position[1] = 0.8f;
-        position[2] = 1.0f;
+        float[] position = new float[5];
 
-        SweepGradient linearGradient = new SweepGradient(0,0,new int[]{Color.RED,Color.GREEN, Color.BLUE}, position);
+        position[0] = 0.0f;
+        position[1] = 0.25f;
+        position[2] = 0.30f;
+        position[3] = 0.75f;
+        position[4] = 1f;
+//        position[2] = 1.0f;
+
+        SweepGradient linearGradient = new SweepGradient(0,0,new int[]{Color.GREEN,Color.GREEN,Color.RED,Color.RED,Color.GREEN}, position);
         circlePaint.setShader(linearGradient);
 //        circlePaint.setColor(ContextCompat.getColor(getContext(),  android.R.color.holo_red_dark));
         matrix = new Matrix();
