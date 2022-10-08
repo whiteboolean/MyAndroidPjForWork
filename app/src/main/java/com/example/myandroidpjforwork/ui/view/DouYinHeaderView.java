@@ -24,21 +24,14 @@ import com.example.myandroidpjforwork.R;
 
 public class DouYinHeaderView extends View {
     private Bitmap bitmap;
-
     BitmapShader bitmapShader;
-
     Paint paint;
-
     Matrix matrix;
-
     private float currentScaleRatio = 1f;
     private float minScaleRation = 0.9f;
     private Paint circlePaint;
-
-
     private int countDown;
     boolean change;
-
     Bitmap[] bitmaps = new Bitmap[2];
 
     private int currentBitmapIndex;
@@ -176,7 +169,6 @@ public class DouYinHeaderView extends View {
 
     @Override
     protected void onDraw(Canvas canvas) {
-
         canvas.translate(getWidth() * 0.5f, getHeight() * 0.5f);
         canvas.save();
         canvas.translate(-(getWidth() - padding) * currentScaleRatio * 0.5f, -(getHeight() - padding) * currentScaleRatio * 0.5f);
@@ -220,6 +212,5 @@ public class DouYinHeaderView extends View {
             }
         }
     }
-
 
 }
