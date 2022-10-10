@@ -185,7 +185,6 @@ public class DouYinHeaderView extends View {
             outsideCirclePaint.setAlpha(alpha);*/
             canvas.drawCircle(0, 0, getWidth() * 0.5f - padding * 0.5f + unMoveCirlceStrokeWidth * 0.5f + totalExpand * outSideRatio, outsideCirclePaint);
         }
-
     }
 
 

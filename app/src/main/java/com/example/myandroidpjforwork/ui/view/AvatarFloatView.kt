@@ -13,6 +13,7 @@ class AvatarFloatView(context: Context) : BaseFloatView(context) {
 
     override fun getChildView(): View {
         val binding = ViewLoginTipsBinding.inflate(LayoutInflater.from(context))
+
         return binding.root
     }
 
