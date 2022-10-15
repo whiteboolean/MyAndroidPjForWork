@@ -84,7 +84,7 @@ public class RoundImageView extends AppCompatImageView {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-//写好一个控件自定义View,写出一个能用的自定义View不易啊。。。
+        //写好一个控件自定义View,写出一个能用的自定义View不易啊。。。
         // 虽然测量这块儿寥寥几行代码,但是还得心细啊。。
         int imgHeight = setMeasureHeight(heightMeasureSpec) - getPaddingTop() - getPaddingBottom() - borderWidth * 2;
         int imgWidth = setMeasureWidth(widthMeasureSpec) - getPaddingLeft() - getPaddingRight() - borderWidth * 2;
