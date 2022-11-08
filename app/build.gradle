@@ -60,4 +60,11 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycle_ver"
 
     implementation "androidx.asynclayoutinflater:asynclayoutinflater:1.0.0"
+
+
+    def koin_version= "3.2.2"
+    // Koin Core features
+    implementation "io.insert-koin:koin-core:$koin_version"
+    implementation "io.insert-koin:koin-logger-slf4j:$koin_version"
+    implementation "io.insert-koin:koin-android-compat:$koin_version"
 }
