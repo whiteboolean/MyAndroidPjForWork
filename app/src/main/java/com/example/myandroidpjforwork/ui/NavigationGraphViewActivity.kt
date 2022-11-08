@@ -6,11 +6,15 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.myandroidpjforwork.R
+import com.example.myandroidpjforwork.bean.Person
 import com.example.myandroidpjforwork.databinding.ActivityNavigationGraphViewBinding
+import org.koin.android.ext.android.inject
 
 class NavigationGraphViewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityNavigationGraphViewBinding
+
+    val person: Person by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,5 +33,6 @@ class NavigationGraphViewActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
 
+        person.speak()
     }
 }
