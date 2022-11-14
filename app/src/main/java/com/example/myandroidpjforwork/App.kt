@@ -24,13 +24,16 @@ class App : Application() {
         startKoin {
             androidLogger()
             androidContext(this@App)
+            modules(appModule)
         }
 
-        val appModule = module {
-            //里面添加各种注入对象
-            factory{
-                Person()
-            }
+
+    }
+
+    val appModule = module {
+        //里面添加各种注入对象
+        factory{
+            Person()
         }
     }
 
